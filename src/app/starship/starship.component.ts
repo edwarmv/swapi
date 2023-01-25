@@ -14,8 +14,8 @@ export class StarshipComponent implements OnInit {
 
   ngOnInit(): void {
     this.starshipService.findStarships().subscribe(console.log);
-    this.starships$ = this.starshipService.findStarships().pipe(map(r => r.results));
-    this.total$ = this.starshipService.findStarships().pipe(map(r => r.count));
+    this.starships$ = this.starshipService.starships$;
+    this.total$ = this.starshipService.total$;
   }
 
   addStarship(starship: any) {
