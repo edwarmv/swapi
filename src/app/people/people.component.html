@@ -1,2 +1,13 @@
-<p>people works!</p>
-hola
+<ol *ngIf="people$ | async as people">
+  <li *ngFor="let person of people">
+    {{ person.name }}
+    <ul>
+      <li *ngFor="let vehicle$ of person.vehicles$">
+        {{ vehicle$ | async }}
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<button (click)="prev()">prev</button>
+<button (click)="next()">next</button>

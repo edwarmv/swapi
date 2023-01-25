@@ -2,15 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
   BehaviorSubject,
-  map,
-  mergeMap,
   Observable,
-  of,
-  switchMap,
   take,
-  takeWhile,
 } from 'rxjs';
-import { Result, Starships } from '../starship/starship.model';
+import { StarshipsResult, Starships } from '../starship/starship.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +13,7 @@ import { Result, Starships } from '../starship/starship.model';
 export class StarshipService {
   url = 'https://swapi.dev/api/starships';
   starshipMap = new Map();
-  starshipsSubject = new BehaviorSubject<Result[]>([]);
+  starshipsSubject = new BehaviorSubject<StarshipsResult[]>([]);
   starships$ = this.starshipsSubject.asObservable();
   totalSubject = new BehaviorSubject<number>(0);
   total$ = this.totalSubject.asObservable();
@@ -29,14 +24,6 @@ export class StarshipService {
   }
 
   findStarships(): Observable<any> {
-    // const starships = new BehaviorSubject(null);
-    // this.http
-    //   .get<Starships>(this.url)
-    //   .pipe(
-    //     mergeMap(({ next }) => this.http.get<Starships>(next)),
-    //     // takeWhile(({ next }) => next !== null)
-    //   )
-    //   .subscribe(console.log);
     return this.http.get(this.url);
   }
 
@@ -44,8 +31,7 @@ export class StarshipService {
     this.http
       .get<Starships>(url)
       .pipe(take(1))
-      .subscribe(({ next, previous, results, count }) => {
-        console.log({ next, previous, results });
+      .subscribe(({ next, results, count }) => {
         this.starshipsSubject.next([...this.starshipsSubject.value, ...results])
         this.totalSubject.next(count);
         if (next) {
