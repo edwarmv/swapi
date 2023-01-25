@@ -1,0 +1,11 @@
+<p>favorite-starship works!</p>
+
+<input (focus)="onFocus()" type="text" [(ngModel)]="filterText" (ngModelChange)="onFilterChange($event)">
+<button (click)="clear()">X</button>
+
+<ol>
+    <li *ngFor="let favoriteStarship of starshipService.starshipMap | keyvalue">
+        {{ favoriteStarship.value.name}}
+        <button (click)="removeStarship(favoriteStarship.value)">Remove</button>
+    </li>
+</ol>

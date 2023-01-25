@@ -1,0 +1,11 @@
+<p>starship works!</p>
+
+<p>Total: {{ total$ | async }}</p>
+
+<ol *ngIf="starships$ | async as starships">
+    <li *ngFor="let starship of starships">
+        <span>{{ starship.name }}</span><button (click)="addStarship(starship)">Add</button>
+    </li>
+</ol>
+
+<router-outlet></router-outlet>
