@@ -28,4 +28,16 @@
 .starship-details {
   display: block;
   overflow: scroll;
+
+  th {
+    white-space: nowrap;
+  }
+
+  td {
+    white-space: nowrap;
+  }
+}
+
+th, td {
+  padding: 10px 15px;
 }
