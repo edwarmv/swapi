@@ -4,20 +4,27 @@ import { StarshipComponent } from './starship.component';
 import { Route, RouterModule } from '@angular/router';
 import { FavoriteStarshipComponent } from './favorite-starship/favorite-starship.component';
 import { FormsModule } from '@angular/forms';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const routes: Route[] = [
-    { path: '', component: StarshipComponent, children: [ { path: 'favorites', component: FavoriteStarshipComponent}] }
+  {
+    path: '',
+    component: StarshipComponent,
+    children: [{ path: 'favorites', component: FavoriteStarshipComponent }],
+  },
 ];
 
 @NgModule({
-  declarations: [
-    StarshipComponent,
-    FavoriteStarshipComponent
-  ],
+  declarations: [StarshipComponent, FavoriteStarshipComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
-  ]
+    MatListModule,
+    MatButtonModule,
+    MatExpansionModule,
+  ],
 })
-export class StarshipModule { }
+export class StarshipModule {}

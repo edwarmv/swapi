@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="opened = !opened"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>SWAPI</span>
+</mat-toolbar>
+<mat-sidenav-container class="container">
+  <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened">
+    <a class="sidenav-item" routerLink="starship" routerLinkActive="active"
+      >starships</a
+    >
+    <a class="sidenav-item" routerLink="people" routerLinkActive="active"
+      >pilots</a
+    >
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
