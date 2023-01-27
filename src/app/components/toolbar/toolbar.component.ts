@@ -5,6 +5,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -20,4 +21,10 @@ import { RouterModule } from '@angular/router';
     MatListModule,
   ],
 })
-export class ToolbarComponent {}
+export class ToolbarComponent {
+  constructor(private loginService: LoginService) {}
+
+  logOut() {
+    this.loginService.logout();
+  }
+}

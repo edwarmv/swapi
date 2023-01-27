@@ -1,0 +1,28 @@
+.container {
+  display: grid;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: #1c1e22;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    color: #ffe300;
+    font-size: 20px;
+  }
+}
+
+.title__api {
+  font-size: 63px;
+  color: #ffe300;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

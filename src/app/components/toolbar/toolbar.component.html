@@ -8,16 +8,29 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>SWAPI</span>
+  <div class="spacer"></div>
+  <button mat-button (click)="logOut()">Logout</button>
 </mat-toolbar>
 
 <mat-drawer-container class="container">
-  <mat-drawer #drawer mode="over">
-    <a class="sidenav-item" routerLink="/starship" routerLinkActive="active"
-      >starships</a
+  <mat-drawer
+    #drawer
+    mode="over"
+  >
+    <a
+      class="sidenav-item"
+      routerLink="/starship"
+      routerLinkActive="active"
     >
-    <a class="sidenav-item" routerLink="/people" routerLinkActive="active"
-      >pilots</a
+      starships
+    </a>
+    <a
+      class="sidenav-item"
+      routerLink="/people"
+      routerLinkActive="active"
     >
+      pilots
+    </a>
   </mat-drawer>
 
   <mat-drawer-content style="padding: 20px">
