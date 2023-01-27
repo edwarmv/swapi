@@ -3,7 +3,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/github/swapi
+cd ~/Documents/swapi
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -14,7 +14,7 @@ else
   set shortmess=aoO
 endif
 badd +29 src/app/app.module.ts
-badd +8 src/app/app.component.ts
+badd +1 src/app/app.component.ts
 badd +15 src/app/app.component.html
 badd +2 src/styles.scss
 badd +2 src/app/app.component.scss
@@ -22,6 +22,12 @@ badd +22 src/app/starship/starship.component.ts
 badd +5 src/app/starship/starship.component.html
 badd +37 src/app/starship/starship.component.scss
 badd +26 src/app/starship/starship.module.ts
+badd +1 ~/github/swapi/src/app/starship/starship.component.html
+badd +0 ~/github/swapi/src/app/app.component.scss
+badd +0 ~/github/swapi/src/app/app.component.ts
+badd +1 ~/github/swapi/src/app/app.component.html
+badd +0 ~/github/swapi/src/app/starship/starship.component.scss
+badd +0 ~/github/swapi/src/app/starship/starship.component.ts
 argglobal
 %argdel
 set stal=2
@@ -29,15 +35,7 @@ tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
 edit src/app/app.module.ts
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
 argglobal
-balt src/app/app.module.ts
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -48,7 +46,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 29 - ((28 * winheight(0) + 24) / 49)
+let s:l = 29 - ((18 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -76,7 +74,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-wincmd =
+exe '1resize ' . ((&lines * 15 + 17) / 34)
+exe 'vert 1resize ' . ((&columns * 72 + 72) / 145)
+exe '2resize ' . ((&lines * 15 + 17) / 34)
+exe 'vert 2resize ' . ((&columns * 72 + 72) / 145)
+exe 'vert 3resize ' . ((&columns * 72 + 72) / 145)
 argglobal
 balt src/app/app.component.scss
 setlocal fdm=manual
@@ -89,13 +91,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 8 - ((7 * winheight(0) + 12) / 24)
+let s:l = 8 - ((4 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 8
 normal! 016|
-lcd ~/github/swapi
 wincmd w
 argglobal
 if bufexists(fnamemodify("~/github/swapi/src/app/app.component.scss", ":p")) | buffer ~/github/swapi/src/app/app.component.scss | else | edit ~/github/swapi/src/app/app.component.scss | endif
@@ -113,11 +114,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 14 - ((13 * winheight(0) + 12) / 24)
+let s:l = 1 - ((0 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 14
+keepjumps 1
 normal! 0
 wincmd w
 argglobal
@@ -136,14 +137,18 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 21 - ((20 * winheight(0) + 24) / 49)
+let s:l = 1 - ((0 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 21
+keepjumps 1
 normal! 0
 wincmd w
-wincmd =
+exe '1resize ' . ((&lines * 15 + 17) / 34)
+exe 'vert 1resize ' . ((&columns * 72 + 72) / 145)
+exe '2resize ' . ((&lines * 15 + 17) / 34)
+exe 'vert 2resize ' . ((&columns * 72 + 72) / 145)
+exe 'vert 3resize ' . ((&columns * 72 + 72) / 145)
 tabnext
 edit ~/github/swapi/src/app/starship/starship.component.html
 let s:save_splitbelow = &splitbelow
@@ -174,12 +179,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 32 - ((23 * winheight(0) + 24) / 49)
+let s:l = 1 - ((0 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 32
-normal! 013|
+keepjumps 1
+normal! 0
 wincmd w
 argglobal
 if bufexists(fnamemodify("~/github/swapi/src/app/starship/starship.component.scss", ":p")) | buffer ~/github/swapi/src/app/starship/starship.component.scss | else | edit ~/github/swapi/src/app/starship/starship.component.scss | endif
@@ -197,13 +202,14 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 19 - ((18 * winheight(0) + 24) / 49)
+let s:l = 1 - ((0 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 19
+keepjumps 1
 normal! 0
 wincmd w
+2wincmd w
 wincmd =
 tabnext 3
 set stal=1

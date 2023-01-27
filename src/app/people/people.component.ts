@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
 import { PeopleService } from '../services/people.service';
 import { Vehicle } from '../vehicle/vehicle.model';
+import { Cm2FtPipe } from './cm2foot.pipe';
 import { PeopleResult } from './people.model';
 
 @Component({
@@ -11,7 +13,7 @@ import { PeopleResult } from './people.model';
   templateUrl: './people.component.html',
   styleUrls: ['./people.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Cm2FtPipe, MatButtonModule],
 })
 export class PeopleComponent {
   private peopleSubject = new BehaviorSubject<

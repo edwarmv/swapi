@@ -1,13 +1,37 @@
-<ol *ngIf="people$ | async as people">
-  <li *ngFor="let person of people">
-    {{ person.name }}
-    <ul>
-      <li *ngFor="let vehicle$ of person.vehicles$">
-        {{ vehicle$ | async }}
-      </li>
-    </ul>
-  </li>
-</ol>
+<table *ngIf="people$ | async as people; else loading">
+  <thead>
+    <th>Name</th>
+    <th>Height</th>
+    <th>Vehicles</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of people">
+      <td>
+        {{ person.name }}   
+      </td>
+      <td>
+        {{ person.height | cm2ft }}
+      </td>
+      <td>
+          <span *ngFor="let vehicle$ of person.vehicles$; let i = index">
+            <ng-container *ngIf="vehicle$ | async as vehicle; else loadingVehicles">
+              {{ vehicle }}
+            </ng-container>
+            <ng-template #loadingVehicles>
+              Loading...
+            </ng-template>
+            <span *ngIf="i < person.vehicles$.length - 1">, </span>
+          </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<button (click)="prev()">prev</button>
-<button (click)="next()">next</button>
+<ng-template #loading>
+  Loading...
+</ng-template>
+
+<div class="pagination">
+  <button mat-flat-button color="primary" (click)="prev()">prev</button>
+  <button mat-flat-button color="primary" (click)="next()">next</button>
+</div>

@@ -5,7 +5,7 @@ import {
   Observable,
   take,
 } from 'rxjs';
-import { StarshipsResult, Starships } from '../starship/starship.model';
+import { StarshipsResult, Starships } from '../starship/starship.interface';
 
 @Injectable({
   providedIn: 'root',

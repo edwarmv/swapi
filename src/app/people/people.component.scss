@@ -1,0 +1,42 @@
+:host {
+    display: block;
+    padding: {
+        bottom: 100px;
+    };
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 60%;
+    margin: {
+        left: auto;
+        right: auto;
+        top: 20px;
+        bottom: 20px;
+    }
+}
+
+thead {
+    th {
+        text-align: left;
+        padding: 10px 0;
+    }
+}
+
+tr {
+    border-bottom: 1pt solid black;
+    &:hover {
+        background-color: lightblue;       
+    }
+
+    td {
+        padding: 5px 0;
+    }
+}
