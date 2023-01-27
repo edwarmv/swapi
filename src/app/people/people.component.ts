@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { PeopleService } from '../services/people.service';
 import { Vehicle } from '../vehicle/vehicle.model';
 import { Cm2FtPipe } from './cm2foot.pipe';

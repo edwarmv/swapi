@@ -7,12 +7,16 @@ import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ToolbarComponent } from '../components/toolbar/toolbar.component';
 
 const routes: Route[] = [
   {
     path: '',
-    component: StarshipComponent,
-    children: [{ path: 'favorites', component: FavoriteStarshipComponent }],
+    component: ToolbarComponent,
+    children: [
+      { path: '', component: StarshipComponent },
+      { path: 'favorites', component: FavoriteStarshipComponent }
+    ],
   },
 ];
 
